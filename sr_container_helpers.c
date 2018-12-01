@@ -18,9 +18,7 @@ int switch_child_root(const char *new_root, const char *put_old)
      *  ------------------------------------------------------
      * */ 
 
-    pivot_root(*new_root, *put_old);
-
-    return 0;
+    return syscall(SYS_pivot_root, *new_root, *put_old);
 }
 
 /**
